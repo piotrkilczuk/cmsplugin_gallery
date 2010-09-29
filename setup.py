@@ -13,5 +13,5 @@ setup(
     packages = find_packages(),
     provides = ['cmsplugin_gallery (0.1.0)',],
     include_package_data=True,
-    requires = ['inline_ordering', 'easy_thumbnails']
+    requires = ['django-inline-ordering', 'easy-thumbnails']
 )
