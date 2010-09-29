@@ -1,7 +1,0 @@
-{% load thumbnail %}
-
-<div class="gallery">
-	{% for image in images %}
-		<img src="{% thumbnail image.src 115x80 crop %}" alt="{{ image.alt }}" title="{{ image.title }}" />
-	{% endfor %}
-</div>
