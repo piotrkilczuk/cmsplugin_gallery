@@ -14,6 +14,7 @@ class CMSGalleryPlugin(CMSPluginBase):
     
     def render(self, context, instance, placeholder):
         context.update({'images': instance.image_set.all(), 'gallery': instance})
+        self.render_template = instance.template
         return context
 
 
