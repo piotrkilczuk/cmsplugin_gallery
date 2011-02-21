@@ -24,14 +24,17 @@ def autodiscover_templates():
             _ = __import__(app)
             dir = os.path.dirname(_.__file__)
             if not dir in dirs_to_scan:
-                dirs_to_scan.append(dir)
+                #append 'templates' for app directories
+                dirs_to_scan.append(os.path.join(dir,'templates'))
+
     if 'django.template.loaders.filesystem.Loader' in settings.TEMPLATE_LOADERS:
         for dir in settings.TEMPLATE_DIRS:
             if not dir in dirs_to_scan:
+                #filesystem loader assumes our templates in 'templates' already
                 dirs_to_scan.append(dir)
-    
+
     for dir in dirs_to_scan:
-        found = glob.glob(os.path.join(dir, 'templates/cmsplugin_gallery/*.html'))
+        found = glob.glob(os.path.join(dir, 'cmsplugin_gallery/*.html'))
         for file in found:
             dir, file = os.path.split(file)
             key, value = os.path.join(dir.split('/')[-1], file), file 

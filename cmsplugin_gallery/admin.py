@@ -2,7 +2,6 @@ from inline_ordering.admin import OrderableStackedInline
 import forms
 import models
 
-
 class ImageInline(OrderableStackedInline):
     
     model = models.Image
