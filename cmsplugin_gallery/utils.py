@@ -9,15 +9,28 @@ def autodiscover_templates():
     'django.template.loaders.filesystem.Loader' and
     'django.template.loaders.app_directories.Loader' work.
     '''
+    def sorted_templates(templates):
+        '''
+        Sorts templates
+        '''
+        TEMPLATES = sorted(templates, key=lambda template: template[1])
+        return TEMPLATES
+
     # obviously, cache for better performance
     global TEMPLATES
     if TEMPLATES:
         return TEMPLATES
-    
+
+    #override templates from settings
+    override_dir = getattr(settings,
+                                'CMSPLUGIN_GALLERY_TEMPLATES_OVERRIDE', None)
+    if override_dir:
+        return sorted_templates(override_dir)
+
     templates = [
         ('cmsplugin_gallery/gallery.html', 'gallery.html'),
     ]
-    
+
     dirs_to_scan = []
     if 'django.template.loaders.app_directories.Loader' in settings.TEMPLATE_LOADERS:
         for app in settings.INSTALLED_APPS:
@@ -45,6 +58,5 @@ def autodiscover_templates():
             if not f:
                 templates.append((key, value,))
             #print os.path.basename(file)
-    
-    TEMPLATES = sorted(templates, key=lambda template: template[1]) 
-    return TEMPLATES
+
+    return sorted_templates(templates)
