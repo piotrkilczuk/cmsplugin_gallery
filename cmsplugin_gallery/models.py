@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from inline_ordering.models import Orderable
 import utils
 
+
 TEMPLATE_CHOICES = utils.autodiscover_templates()
 
 
@@ -20,8 +21,12 @@ class GalleryPlugin(CMSPlugin):
 
 class Image(Orderable):
     
+    def get_media_path(self, filename):
+        pages = self.gallery.placeholder.page_set.all()
+        return pages[0].get_media_path(filename)
+    
     gallery = models.ForeignKey(GalleryPlugin)
-    src = models.ImageField(upload_to='cmsplugin_gallery/images', 
+    src = models.ImageField(upload_to=get_media_path, 
                             height_field='src_height', 
                             width_field='src_width')
     src_height = models.PositiveSmallIntegerField(editable=False, null=True)
