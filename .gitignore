@@ -2,3 +2,4 @@
 .project
 .pydevproject
 *.egg-info
+dist
