@@ -1,11 +1,15 @@
+import threading
+
 from cms.models import CMSPlugin
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from inline_ordering.models import Orderable
+
 import utils
 
-
-TEMPLATE_CHOICES = utils.autodiscover_templates()
+localdata = threading.local()
+localdata.TEMPLATE_CHOICES = utils.autodiscover_templates()
+TEMPLATE_CHOICES = localdata.TEMPLATE_CHOICES
 
 
 class GalleryPlugin(CMSPlugin):
