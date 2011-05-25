@@ -1,11 +1,17 @@
-from django.conf import settings
 import glob
-import os 
+import os
+import threading
 
-TEMPLATES = tuple()
+from django.conf import settings
+
+localdata = threading.local()
+localdata.TEMPLATES = tuple()
+TEMPLATES = localdata.TEMPLATES
+
 
 def autodiscover_templates():
-    '''Autodiscovers cmsplugin_gallery templates the way 
+    '''
+    Autodiscovers cmsplugin_gallery templates the way
     'django.template.loaders.filesystem.Loader' and
     'django.template.loaders.app_directories.Loader' work.
     '''
@@ -22,14 +28,14 @@ def autodiscover_templates():
         return TEMPLATES
 
     #override templates from settings
-    override_dir = getattr(settings,
-                                'CMSPLUGIN_GALLERY_TEMPLATES_OVERRIDE', None)
+    override_dir = getattr(settings, 'CMSPLUGIN_GALLERY_TEMPLATES', None)
     if override_dir:
         return sorted_templates(override_dir)
 
-    templates = [
-        ('cmsplugin_gallery/gallery.html', 'gallery.html'),
-    ]
+    templates = []
+#    templates = [
+#        ('cmsplugin_gallery/gallery.html', 'gallery.html'),
+#    ]
 
     dirs_to_scan = []
     if 'django.template.loaders.app_directories.Loader' in settings.TEMPLATE_LOADERS:
@@ -38,7 +44,7 @@ def autodiscover_templates():
             dir = os.path.dirname(_.__file__)
             if not dir in dirs_to_scan:
                 #append 'templates' for app directories
-                dirs_to_scan.append(os.path.join(dir,'templates'))
+                dirs_to_scan.append(os.path.join(dir, 'templates'))
 
     if 'django.template.loaders.filesystem.Loader' in settings.TEMPLATE_LOADERS:
         for dir in settings.TEMPLATE_DIRS:
@@ -50,7 +56,7 @@ def autodiscover_templates():
         found = glob.glob(os.path.join(dir, 'cmsplugin_gallery/*.html'))
         for file in found:
             dir, file = os.path.split(file)
-            key, value = os.path.join(dir.split('/')[-1], file), file 
+            key, value = os.path.join(dir.split('/')[-1], file), file
             f = False
             for _, template in templates:
                 if template == file:
