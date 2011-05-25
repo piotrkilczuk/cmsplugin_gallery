@@ -19,8 +19,9 @@ Requirements
 Installation
 ------------
 
-1. Install requirements and put ``cmsplugin_gallery`` on your python path (should be 
-   installed automatically if you use ``easy_install`` / ``pip``).
+1. Install requirements and put ``cmsplugin_gallery`` on your python path 
+   (requirements will be installed automatically if you use ``easy_install`` or 
+   ``pip``).
 
 2. Add ``cmsplugin_gallery`` to your installed apps
 
