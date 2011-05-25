@@ -5,7 +5,7 @@ DjangoCMS Gallery plugin (yet another)
 Features
 --------
 
-1. Drag&Drop reordering of photos
+1. Drag&Drop reordering of photos in the plugin admin
 
 2. Unlimited, auto-discovered custom templates - you can change template 
    of given gallery at anytime, use javascript galleries etc. 
@@ -37,7 +37,19 @@ Installation
 Usage
 -----
 
-In order to embed your custom templates, put it under ``templates/cmsplugin_gallery/YOURTEMPLATE.html``
-in any active application directory or directory specified in ``TEMPLATE_DIRS``. 
+The easiest approach is to use a nice feature of cmsplugin_gallery -
+the template autodiscovery. In order to take advantage of it, add your custom 
+templates in the cmsplugin_gallery subdirectory of any of template dirs scanned
+by Django.
+
+If you don't want to use the autodiscovery, you can hardcode available templates
+in settings.py using following setting:
+
+::
+
+    CMSPLUGIN_GALLERY_TEMPLATES = (
+        ('app/template.html', 'Template #1', ),
+        ('app/other_template.html', 'Template #2', ),
+    )
 
 Embed as a typical plugin.
