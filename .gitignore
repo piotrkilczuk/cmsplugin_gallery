@@ -4,3 +4,4 @@
 .settings
 *.egg-info
 dist
+.idea
