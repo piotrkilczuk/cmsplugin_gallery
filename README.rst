@@ -1,44 +1,46 @@
-======================================
-DjangoCMS Gallery plugin (yet another)
-======================================
+=================
+cmsplugin_gallery
+=================
 
-Features
---------
+cmsplugin_gallery adds simple gallery plugin to your djangoCMS installation
 
-1. Drag&Drop reordering of photos in the plugin admin
+Features:
 
-2. Unlimited, auto-discovered custom templates - you can change template 
-   of given gallery at anytime, use javascript galleries etc. 
+- Drag&Drop reordering of photos in the plugin admin
+- Unlimited, auto-discovered custom templates - you can change template
+   of given gallery at anytime, use javascript galleries etc.
 
-Requirements
-------------
+Contributions and comments are welcome using Github at:
+http://github.com/centralniak/cmsplugin_gallery
+
+Please not that cmsplugin_gallery requires:
 
 - django-inline-ordering http://pypi.python.org/pypi/django-inline-ordering/
 - easy-thumbnails http://pypi.python.org/pypi/easy-thumbnails/
 
 Installation
-------------
+============
 
-1. Install requirements and put ``cmsplugin_gallery`` on your python path 
-   (requirements will be installed automatically if you use ``easy_install`` or 
-   ``pip``).
+#. `pip install cmsplugin_gallery`
+#. Add `'cmsplugin_gallery'` to `INSTALLED_APPS` (if necessary)
+#. Run `syncdb` or `cmsplugin_gallery` if using SOuth
 
-2. Add ``cmsplugin_gallery`` to your installed apps
+Configuration
+=============
 
-3. Run ``syncdb`` or ``migrate cmsplugin_gallery`` (if you use South). 
+#. Create directory for storing media files - files will be uploaded to
+   MEDIA_ROOT + 'cmsplugin_gallery/images'. Make sure it is writable especially
+   when running in embedded mode on production server.
 
-4. Create directory for storing media files - files will be uploaded to MEDIA_ROOT + 'cmsplugin_gallery/images'.
-   Make sure it is writable especially when running in embedded mode on production server. 
-
-5. Very simple template is included with the project. To make it work 100%, install jQueryTOOLS 
-   for overlay support using your favorite method
+#. Very simple template is included with the project. To make it work 100%,
+   install jQueryTOOLS for overlay support using your favorite method
    http://flowplayer.org/tools/download/index.html
 
 Usage
------
+=====
 
 The easiest approach is to use a nice feature of cmsplugin_gallery -
-the template autodiscovery. In order to take advantage of it, add your custom 
+the template autodiscovery. In order to take advantage of it, add your custom
 templates in the cmsplugin_gallery subdirectory of any of template dirs scanned
 by Django.
 
@@ -53,3 +55,12 @@ in settings.py using following setting:
     )
 
 Embed as a typical plugin.
+
+Bugs & Contribution
+===================
+
+Please use Github to report bugs, feature requests and submit your code:
+http://github.com/centralniak/cmsplugin_gallery
+
+:author: Piotr Kilczuk
+:date: 2012/01/31
