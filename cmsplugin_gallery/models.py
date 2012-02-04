@@ -14,6 +14,9 @@ TEMPLATE_CHOICES = localdata.TEMPLATE_CHOICES
 
 class GalleryPlugin(CMSPlugin):
 
+    def copy_relations(self, oldinstance):
+        self.image_set = oldinstance.image_set.all()
+
     template = models.CharField(max_length=255,
                                 choices=TEMPLATE_CHOICES,
                                 default='cmsplugin_gallery/gallery.html',
