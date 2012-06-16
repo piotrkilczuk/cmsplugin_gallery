@@ -32,14 +32,14 @@ class Image(Orderable):
         pages = self.gallery.placeholder.page_set.all()
         return pages[0].get_media_path(filename)
 
-    gallery = models.ForeignKey(GalleryPlugin)
-    src = models.ImageField(upload_to=get_media_path,
+    gallery = models.ForeignKey(GalleryPlugin, verbose_name=_("Gallery"))
+    src = models.ImageField(_("Image file"), upload_to=get_media_path,
                             height_field='src_height',
                             width_field='src_width')
-    src_height = models.PositiveSmallIntegerField(editable=False, null=True)
-    src_width = models.PositiveSmallIntegerField(editable=False, null=True)
-    title = models.CharField(max_length=255, blank=True)
-    alt = models.TextField(blank=True)
+    src_height = models.PositiveSmallIntegerField(_("Image height"), editable=False, null=True)
+    src_width = models.PositiveSmallIntegerField(_("Image height"), editable=False, null=True)
+    title = models.CharField(_("Title"), max_length=255, blank=True)
+    alt = models.TextField(_("Alt text"), blank=True)
 
     def __unicode__(self):
         return self.title or self.alt or str(self.pk)
