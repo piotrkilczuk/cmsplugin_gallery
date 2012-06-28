@@ -26,8 +26,7 @@ class Migration(DataMigration):
             f.close()
 
     def forwards(self, orm):
-        #objects = orm['cmsplugin_gallery.image'].objects.all()
-        objects = Image.objects.all()
+        objects = orm['cmsplugin_gallery.Image'].objects.all()
         for object in objects:
             self.resave_files(object)
 
