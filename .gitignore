@@ -1,7 +1,13 @@
 *.pyc
+*.pyo
+
+.idea
 .project
 .pydevproject
 .settings
+
 *.egg-info
 dist
-.idea
+
+tests/_env
+tests/_oldenv
