@@ -10,6 +10,9 @@ Features:
 - Unlimited, auto-discovered custom templates - you can change template
    of given gallery at anytime, use javascript galleries etc.
 
+There is also a django-filer_ enabled version of this plugin maintained by
+Ales Zabala Alava under https://github.com/shagi/cmsplugin_gallery_filer.
+
 Contributions and comments are welcome using Github at:
 http://github.com/centralniak/cmsplugin_gallery
 
@@ -63,4 +66,6 @@ Please use Github to report bugs, feature requests and submit your code:
 http://github.com/centralniak/cmsplugin_gallery
 
 :author: Piotr Kilczuk
-:date: 2012/01/31
+:date: 2012/08/01
+
+.. _django-filer: https://github.com/stefanfoulis/django-filer/
