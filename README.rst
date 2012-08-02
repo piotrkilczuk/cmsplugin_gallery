@@ -8,7 +8,7 @@ Features:
 
 - Drag&Drop reordering of photos in the plugin admin
 - Unlimited, auto-discovered custom templates - you can change template
-   of given gallery at anytime, use javascript galleries etc.
+  of given gallery at anytime, use javascript galleries etc.
 
 There is also a django-filer_ enabled version of this plugin maintained by
 Ales Zabala Alava under https://github.com/shagi/cmsplugin_gallery_filer.
@@ -26,7 +26,7 @@ Installation
 
 #. `pip install cmsplugin_gallery`
 #. Add `'cmsplugin_gallery'` to `INSTALLED_APPS` (if necessary)
-#. Run `syncdb` or `cmsplugin_gallery` if using SOuth
+#. Run `syncdb` or `migrate cmsplugin_gallery` if using South
 
 Configuration
 =============
