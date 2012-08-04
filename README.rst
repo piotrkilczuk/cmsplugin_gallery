@@ -16,10 +16,12 @@ Ales Zabala Alava under https://github.com/shagi/cmsplugin_gallery_filer.
 Contributions and comments are welcome using Github at:
 http://github.com/centralniak/cmsplugin_gallery
 
-Please not that cmsplugin_gallery requires:
+Please note that cmsplugin_gallery requires:
 
 - django-inline-ordering http://pypi.python.org/pypi/django-inline-ordering/
 - easy-thumbnails http://pypi.python.org/pypi/easy-thumbnails/
+
+Follow individual installation instructions before installing **cmsplugin_gallery**.
 
 Installation
 ============
