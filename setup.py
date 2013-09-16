@@ -4,9 +4,9 @@ from setuptools import find_packages, setup
 
 setup(
     name='cmsplugin_gallery',
-    version='0.5.3',
+    version='0.5.4',
     author='Piotr Kilczuk',
-    author_email='p.kilczuk@neumea.pl',
+    author_email='piotr@tymaszweb.pl',
     url='http://github.com/centralniak',
     description = 'DjangoCMS image gallery plugin with drag&drop '
                   'reordering in admin, support for thumbnails and '
