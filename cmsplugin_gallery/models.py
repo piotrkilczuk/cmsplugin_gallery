@@ -30,7 +30,7 @@ class GalleryPlugin(CMSPlugin):
 
     template = models.CharField(max_length=255,
                                 choices=TEMPLATE_CHOICES,
-                                default='cmsplugin_gallery/gallery.html',
+                                default=TEMPLATE_CHOICES[0][0],
                                 editable=len(TEMPLATE_CHOICES) > 1)
 
     def __unicode__(self):
