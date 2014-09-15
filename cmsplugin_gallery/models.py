@@ -1,6 +1,9 @@
+from datetime import date
+import os
 import threading
 
 from cms.models import CMSPlugin
+from cms.utils import get_cms_setting
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from inline_ordering.models import Orderable
@@ -27,7 +30,7 @@ class GalleryPlugin(CMSPlugin):
 
     template = models.CharField(max_length=255,
                                 choices=TEMPLATE_CHOICES,
-                                default='cmsplugin_gallery/gallery.html',
+                                default=TEMPLATE_CHOICES[0][0],
                                 editable=len(TEMPLATE_CHOICES) > 1)
 
     def __unicode__(self):
@@ -38,7 +41,12 @@ class Image(Orderable):
 
     def get_media_path(self, filename):
         pages = self.gallery.placeholder.page_set.all()
-        return pages[0].get_media_path(filename)
+        if pages.count():
+            return pages[0].get_media_path(filename)
+        else:
+            today = date.today()
+            return os.path.join(get_cms_setting('PAGE_MEDIA_PATH'),
+                str(today.year), str(today.month), str(today.day), filename)
 
     gallery = models.ForeignKey(GalleryPlugin, verbose_name=_("Gallery"))
     src = models.ImageField(_("Image file"), upload_to=get_media_path,
