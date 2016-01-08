@@ -1,6 +1,6 @@
 *.pyc
 *.pyo
-
+build
 .idea
 .project
 .pydevproject
