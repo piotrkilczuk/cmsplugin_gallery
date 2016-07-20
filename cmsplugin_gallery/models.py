@@ -8,7 +8,7 @@ from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from inline_ordering.models import Orderable
 from django.utils.deconstruct import deconstructible
-
+from django.db import connection
 
 import utils
 
