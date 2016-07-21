@@ -10,7 +10,7 @@ class CMSGalleryPlugin(CMSPluginBase):
 
     model = models.GalleryPlugin
     inlines = [admin.ImageInline, ]
-    name = _('Image gallery')
+    name = _('Image gallery Plugin')
     render_template = 'cmsplugin_gallery/gallery.html'
 
     def render(self, context, instance, placeholder):
