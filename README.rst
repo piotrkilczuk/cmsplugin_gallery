@@ -1,5 +1,3 @@
-**THIS PROJECT IS NO LONGER SUPPORTED**
-
 =================
 cmsplugin_gallery
 =================
@@ -27,7 +25,6 @@ Follow individual installation instructions before installing **cmsplugin_galler
 
 Installation
 ============
-
 #. `pip install cmsplugin_gallery`
 #. Add `'cmsplugin_gallery'` to `INSTALLED_APPS` (if necessary)
 #. Run `syncdb` or `migrate cmsplugin_gallery` if using South
@@ -35,6 +32,8 @@ Installation
 Configuration
 =============
 
+
+#. Supports Django version 1.8+ and latest Django CMS version.
 #. Create directory for storing media files - files will be uploaded to
    MEDIA_ROOT + 'cmsplugin_gallery/images'. Make sure it is writable especially
    when running in embedded mode on production server.
