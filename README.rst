@@ -71,4 +71,9 @@ http://github.com/centralniak/cmsplugin_gallery
 :author: Piotr Kilczuk
 :date: 2012/08/01
 
+Current Maintainer:
+
+:maintainer: Vinit Kumar
+:date: 2016/08/23
+
 .. _django-filer: https://github.com/stefanfoulis/django-filer/
