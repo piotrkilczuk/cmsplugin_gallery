@@ -10,7 +10,7 @@ from inline_ordering.models import Orderable
 from django.utils.deconstruct import deconstructible
 from django.db import connection
 
-import utils
+from . import utils
 
 localdata = threading.local()
 localdata.TEMPLATE_CHOICES = utils.autodiscover_templates()
