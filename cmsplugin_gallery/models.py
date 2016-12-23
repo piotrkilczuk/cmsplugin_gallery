@@ -54,6 +54,18 @@ class GalleryPlugin(CMSPlugin):
 
 
 class Image(Orderable):
+    ZERO_PERCENT = "0%"
+    TWENTY_FIVE_PERCENT = "25%"
+    FIFTY_PERCENT = "50%"
+    SEVENTY_FIVE_PERCENT = "75%"
+    HUNDRED_PERCENT = "100%"
+    CROP_CHOICES = (
+        (ZERO_PERCENT, "0%"),
+        (TWENTY_FIVE_PERCENT, "25%"),
+        (FIFTY_PERCENT, "50%"),
+        (SEVENTY_FIVE_PERCENT, "75%"),
+        (HUNDRED_PERCENT, "100%"),
+    )
 
     def get_media_path(self, filename):
         pages = self.gallery.placeholder.page_set.all()
@@ -72,6 +84,7 @@ class Image(Orderable):
     src_width = models.PositiveSmallIntegerField(_("Image height"), editable=False, null=True)
     title = models.CharField(_("Title"), max_length=255, blank=True)
     alt = models.TextField(_("Alt text"), blank=True)
+    crop = models.CharField(default=ZERO_PERCENT, choices=CROP_CHOICES, max_length=10)
 
     def __unicode__(self):
         return self.title or self.alt or str(self.pk)
