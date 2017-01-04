@@ -94,8 +94,7 @@ class Image(Orderable):
     src_width = models.PositiveSmallIntegerField(_("Image height"), editable=False, null=True)
     title = models.CharField(_("Title"), max_length=255, blank=True)
     alt = models.TextField(_("Alt text"), blank=True)
-    overlay_image = models.ImageField(_("Overlay Image",
-        upload_to=get_upload_path))
+    overlay_image = models.ImageField(_("Overlay Image"), upload_to=get_upload_path, null=True, blank=True)
     overlay_position = models.IntegerField(default=BOTTOM_LEFT,
         choices=OVERLAY_POSITION_CHOICES)
     crop = models.CharField(default=ZERO_PERCENT, choices=CROP_CHOICES, max_length=10)
