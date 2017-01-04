@@ -66,6 +66,16 @@ class Image(Orderable):
         (SEVENTY_FIVE_PERCENT, "75%"),
         (HUNDRED_PERCENT, "100%"),
     )
+    TOP_LEFT = 1
+    TOP_RIGHT = 2
+    BOTTOM_LEFT = 3
+    BOTTOM_RIGHT = 4
+    OVERLAY_POSITION_CHOICES = (
+            (TOP_LEFT, 'Top Left'),
+            (TOP_RIGHT, 'Top right'),
+            (BOTTOM_LEFT, 'Bottom Left'),
+            (BOTTOM_RIGHT, 'Bottom Right'),
+    )
 
     def get_media_path(self, filename):
         pages = self.gallery.placeholder.page_set.all()
@@ -84,6 +94,10 @@ class Image(Orderable):
     src_width = models.PositiveSmallIntegerField(_("Image height"), editable=False, null=True)
     title = models.CharField(_("Title"), max_length=255, blank=True)
     alt = models.TextField(_("Alt text"), blank=True)
+    overlay_image = models.ImageField(_("Overlay Image",
+        upload_to=get_upload_path))
+    overlay_position = models.IntegerField(default=BOTTOM_LEFT,
+        choices=OVERLAY_POSITION_CHOICES)
     crop = models.CharField(default=ZERO_PERCENT, choices=CROP_CHOICES, max_length=10)
 
     def __unicode__(self):
