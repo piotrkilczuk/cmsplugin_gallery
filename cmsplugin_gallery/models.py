@@ -53,6 +53,7 @@ class GalleryPlugin(CMSPlugin):
             new_img.src_width = img.src_width
             new_img.title = img.title
             new_img.alt = img.alt
+            new_img.crop = img.crop
             new_img.save()
 
     overlay_image = models.ImageField(_("Overlay Image"), upload_to=get_upload_path, null=True, blank=True)
