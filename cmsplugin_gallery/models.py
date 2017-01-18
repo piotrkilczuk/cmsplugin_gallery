@@ -98,8 +98,8 @@ class Image(Orderable):
     src_height = models.PositiveSmallIntegerField(_("Image height"), editable=False, null=True)
     src_width = models.PositiveSmallIntegerField(_("Image height"), editable=False, null=True)
     title = models.CharField(_("Title"), max_length=255, blank=True)
-    alt = models.TextField(_("Alt text"), blank=True)
-    crop = models.CharField(default=ZERO_PERCENT, choices=CROP_CHOICES, max_length=10)
+    alt = models.CharField(_("Alt text"), blank=True, max_length=255)
+    crop = models.CharField(default=ZERO_PERCENT, choices=CROP_CHOICES, max_length=10, verbose_name="Positionering")
 
     def __unicode__(self):
         return self.title or self.alt or str(self.pk)
