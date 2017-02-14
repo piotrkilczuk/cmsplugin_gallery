@@ -2,6 +2,8 @@
 cmsplugin_gallery
 =================
 
+!https://travis-ci.org/centralniak/cmsplugin_gallery.svg?branch=master!:https://travis-ci.org/centralniak/cmsplugin_gallery
+
 cmsplugin_gallery adds simple gallery plugin to your djangoCMS installation
 
 Features:
