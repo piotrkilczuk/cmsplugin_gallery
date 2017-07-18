@@ -24,10 +24,7 @@ class UploadPath(object):
         self.path = sub_path
 
     def __call__(self, instance, filename):
-        if connection.schema_name:
-            return "gallery/%s/%s" % (connection.schema_name, filename)
-        else:
-            return "gallery/%s" % (filename)
+        return "gallery/%s" % (filename)
 
 get_upload_path = UploadPath('GalleryPlugin')
 
