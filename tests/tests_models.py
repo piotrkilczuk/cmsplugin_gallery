@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.test import TestCase
 
-from cmsplugin_gallery.models import GalleryPlugin, Image
+#from cmsplugin_gallery.models import GalleryPlugin, Image
 
 
 class GalleryTestCase(TestCase):
