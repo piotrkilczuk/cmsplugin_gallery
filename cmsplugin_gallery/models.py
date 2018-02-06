@@ -3,7 +3,12 @@ import os
 import threading
 
 from cms.models import CMSPlugin
-from cms.utils import get_cms_setting
+
+try:
+    from cms.utils import get_cms_setting
+except ImportError:
+    from cms.utils.conf import get_cms_setting
+
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from inline_ordering.models import Orderable
