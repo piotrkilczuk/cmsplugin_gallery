@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 from datetime import date
 import os
 import threading
@@ -15,7 +16,7 @@ from inline_ordering.models import Orderable
 from django.utils.deconstruct import deconstructible
 from django.db import connection
 
-import utils
+from . import utils
 
 localdata = threading.local()
 localdata.TEMPLATE_CHOICES = utils.autodiscover_templates()
