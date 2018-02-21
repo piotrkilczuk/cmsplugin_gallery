@@ -14,5 +14,5 @@ setup(
     packages=find_packages(),
     provides=['cmsplugin_gallery', ],
     include_package_data=True,
-    install_requires = ['django-inline-ordering>=0.1.1', 'easy-thumbnails',]
+    install_requires = ['django>==1.8.18', 'django-inline-ordering>=0.1.1', 'easy-thumbnails',]
 )
