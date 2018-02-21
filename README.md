@@ -1,15 +1,12 @@
-=================
-cmsplugin_gallery
-=================
+# cmsplugin_gallery
 
-.. image:: https://travis-ci.org/centralniak/cmsplugin_gallery.svg?branch=master
-    :target: https://travis-ci.org/centralniak/cmsplugin_gallery
+[![Build Status](https://travis-ci.org/centralniak/cmsplugin_gallery.svg?branch=master)](https://travis-ci.org/centralniak/cmsplugin_gallery)
 
-cmsplugin_gallery adds simple gallery plugin to your djangoCMS installation
+`cmsplugin_gallery` adds simple gallery plugin to your djangoCMS installation
 
 Features:
 
-- Drag&Drop reordering of photos in the plugin admin
+- Drag & Drop reordering of photos in the plugin admin
 - Unlimited, auto-discovered custom templates - you can change template
   of given gallery at anytime, use javascript galleries etc.
 
@@ -28,22 +25,16 @@ Follow individual installation instructions before installing **cmsplugin_galler
 
 Installation
 ============
-#. `pip install cmsplugin_gallery`
-#. Add `'cmsplugin_gallery'` to `INSTALLED_APPS` (if necessary)
-#. Run `syncdb` or `migrate cmsplugin_gallery` if using South
+```
+`pip install cmsplugin_gallery`
+Add `'cmsplugin_gallery'` to `INSTALLED_APPS` (if necessary)
+Run Migrations
+```
 
 Configuration
 =============
 
-
 #. Supports Django version 1.8+ and latest Django CMS version.
-#. Create directory for storing media files - files will be uploaded to
-   MEDIA_ROOT + 'cmsplugin_gallery/images'. Make sure it is writable especially
-   when running in embedded mode on production server.
-
-#. Very simple template is included with the project. To make it work 100%,
-   install jQueryTOOLS for overlay support using your favorite method
-   http://flowplayer.org/tools/download/index.html
 
 Usage
 =====
@@ -56,13 +47,12 @@ by Django.
 If you don't want to use the autodiscovery, you can hardcode available templates
 in settings.py using following setting:
 
-::
-
-    CMSPLUGIN_GALLERY_TEMPLATES = (
-        ('app/template.html', 'Template #1', ),
-        ('app/other_template.html', 'Template #2', ),
-    )
-
+```
+CMSPLUGIN_GALLERY_TEMPLATES = (
+    ('app/template.html', 'Template #1', ),
+    ('app/other_template.html', 'Template #2', ),
+)
+```
 Embed as a typical plugin.
 
 Bugs & Contribution
@@ -71,12 +61,14 @@ Bugs & Contribution
 Please use Github to report bugs, feature requests and submit your code:
 http://github.com/centralniak/cmsplugin_gallery
 
-:author: Piotr Kilczuk
-:date: 2012/08/01
+```
+author: Piotr Kilczuk
+date: 2012/08/01
+```
 
 Current Maintainer:
 
-:maintainer: Vinit Kumar
-:date: 2016/08/23
-
-.. _django-filer: https://github.com/stefanfoulis/django-filer/
+```
+maintainer: Vinit Kumar
+date: 2016/08/23
+```
