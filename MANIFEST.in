@@ -1,0 +1,2 @@
+recursive-include cmsplugin_gallery/locale *
+recursive-include cmsplugin_gallery/templates *
