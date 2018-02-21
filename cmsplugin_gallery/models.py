@@ -3,7 +3,12 @@ import os
 import threading
 
 from cms.models import CMSPlugin
-from cms.utils import get_cms_setting
+
+try:
+    from cms.utils import get_cms_setting
+except ImportError:
+    from cms.utils.conf import get_cms_setting
+
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 from inline_ordering.models import Orderable
@@ -24,11 +29,22 @@ class UploadPath(object):
         self.path = sub_path
 
     def __call__(self, instance, filename):
-        return "gallery/%s/%s" % (instance.title, filename)
+        return "gallery/%s" % (filename)
 
 get_upload_path = UploadPath('GalleryPlugin')
 
 class GalleryPlugin(CMSPlugin):
+
+    TOP_LEFT = 1
+    TOP_RIGHT = 2
+    BOTTOM_LEFT = 3
+    BOTTOM_RIGHT = 4
+    OVERLAY_POSITION_CHOICES = (
+            (TOP_LEFT, 'Top Left'),
+            (TOP_RIGHT, 'Top right'),
+            (BOTTOM_LEFT, 'Bottom Left'),
+            (BOTTOM_RIGHT, 'Bottom Right'),
+    )
 
     def copy_relations(self, oldinstance):
         for img in oldinstance.image_set.all():
@@ -39,8 +55,12 @@ class GalleryPlugin(CMSPlugin):
             new_img.src_width = img.src_width
             new_img.title = img.title
             new_img.alt = img.alt
+            new_img.crop = img.crop
             new_img.save()
 
+    overlay_image = models.ImageField(_("Overlay Image"), upload_to=get_upload_path, null=True, blank=True)
+    overlay_position = models.IntegerField(default=BOTTOM_LEFT,
+        choices=OVERLAY_POSITION_CHOICES)
     template = models.CharField(max_length=255,
                                 choices=TEMPLATE_CHOICES,
                                 default=TEMPLATE_CHOICES[0][0],
@@ -51,6 +71,18 @@ class GalleryPlugin(CMSPlugin):
 
 
 class Image(Orderable):
+    ZERO_PERCENT = "0%"
+    TWENTY_FIVE_PERCENT = "25%"
+    FIFTY_PERCENT = "50%"
+    SEVENTY_FIVE_PERCENT = "75%"
+    HUNDRED_PERCENT = "100%"
+    CROP_CHOICES = (
+        (ZERO_PERCENT, "0%"),
+        (TWENTY_FIVE_PERCENT, "25%"),
+        (FIFTY_PERCENT, "50%"),
+        (SEVENTY_FIVE_PERCENT, "75%"),
+        (HUNDRED_PERCENT, "100%"),
+    )
 
     def get_media_path(self, filename):
         pages = self.gallery.placeholder.page_set.all()
@@ -68,7 +100,8 @@ class Image(Orderable):
     src_height = models.PositiveSmallIntegerField(_("Image height"), editable=False, null=True)
     src_width = models.PositiveSmallIntegerField(_("Image height"), editable=False, null=True)
     title = models.CharField(_("Title"), max_length=255, blank=True)
-    alt = models.TextField(_("Alt text"), blank=True)
+    alt = models.CharField(_("Alt text"), blank=True, max_length=255)
+    crop = models.CharField(default=ZERO_PERCENT, choices=CROP_CHOICES, max_length=10, verbose_name="Positionering")
 
     def __unicode__(self):
         return self.title or self.alt or str(self.pk)
