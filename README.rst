@@ -1,8 +1,9 @@
-**THIS PROJECT IS NO LONGER SUPPORTED**
-
 =================
 cmsplugin_gallery
 =================
+
+.. image:: https://travis-ci.org/centralniak/cmsplugin_gallery.svg?branch=master
+    :target: https://travis-ci.org/centralniak/cmsplugin_gallery
 
 cmsplugin_gallery adds simple gallery plugin to your djangoCMS installation
 
@@ -27,7 +28,6 @@ Follow individual installation instructions before installing **cmsplugin_galler
 
 Installation
 ============
-
 #. `pip install cmsplugin_gallery`
 #. Add `'cmsplugin_gallery'` to `INSTALLED_APPS` (if necessary)
 #. Run `syncdb` or `migrate cmsplugin_gallery` if using South
@@ -35,6 +35,8 @@ Installation
 Configuration
 =============
 
+
+#. Supports Django version 1.8+ and latest Django CMS version.
 #. Create directory for storing media files - files will be uploaded to
    MEDIA_ROOT + 'cmsplugin_gallery/images'. Make sure it is writable especially
    when running in embedded mode on production server.
@@ -71,5 +73,10 @@ http://github.com/centralniak/cmsplugin_gallery
 
 :author: Piotr Kilczuk
 :date: 2012/08/01
+
+Current Maintainer:
+
+:maintainer: Vinit Kumar
+:date: 2016/08/23
 
 .. _django-filer: https://github.com/stefanfoulis/django-filer/
