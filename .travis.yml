@@ -19,3 +19,6 @@ env:
 
 install:
   - pip install tox coverage
+
+script:
+  - tox -e $TOX_ENV
