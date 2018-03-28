@@ -17,7 +17,7 @@ class CMSGalleryPlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         images = instance.image_set.all()
-        grouped_images = [images[i:i + 4] for i in xrange(0, len(images.values_list('src')), 4)]
+        grouped_images = [images[i:i + 4] for i in range(0, len(images.values_list('src')), 4)]
         context.update({
                         'images': instance.image_set.all(),
                         'grouped_images': grouped_images,
