@@ -8,7 +8,7 @@ class GalleryTestCase(TestCase):
     def setUp(self):
         self.gallery = GalleryPlugin.objects.create(
             template='cmsplugin_gallery/gallery.html')
-        self.image = Image.objects.create(src=File(open('tests/logo.png')), gallery=self.gallery)
+        self.image = Image.objects.create(src=File(open(u'tests/logo.png')), gallery=self.gallery)
 
     def test_gallery_instance(self):
         image_instance = Image.objects.get(id=self.image.id)
