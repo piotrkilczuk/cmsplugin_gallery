@@ -2,7 +2,11 @@
 # -*- coding: utf-8 -*-
 
 HELPER_SETTINGS = {
-    'INSTALLED_APPS': [],
+    'INSTALLED_APPS': [
+        'easy_thumbnails',
+        'filer',
+        'mptt',
+    ],
     'ALLOWED_HOSTS': ['localhost'],
     'CMS_LANGUAGES': {
         1: [{
@@ -11,6 +15,9 @@ HELPER_SETTINGS = {
         }]
     },
     'LANGUAGE_CODE': 'en',
+    'CMSPLUGIN_GALLERY_TEMPLATES': [
+        ('cmsplugin_gallery/gallery.html', 'gallery.html'),
+    ]
 }
 
 def run():
@@ -19,3 +26,4 @@ def run():
 
 if __name__ == '__main__':
     run()
+
