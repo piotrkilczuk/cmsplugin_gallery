@@ -5,9 +5,9 @@ build/*
 .project
 .pydevproject
 .settings
-
+.coverage
 *.egg-info
 dist
-
+.eggs
 tests/_env
 tests/_oldenv
