@@ -9,7 +9,7 @@ class ImageInline(OrderableStackedInline):
     model = models.Image
 
     def formfield_for_dbfield(self, db_field, **kwargs):
-        if db_field.name == 'src':
+        if db_field.name == 'image_src':
             kwargs.pop('request', None)
             kwargs['widget'] = forms.AdminImageWidget
             return db_field.formfield(**kwargs)
