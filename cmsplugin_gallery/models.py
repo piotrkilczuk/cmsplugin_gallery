@@ -15,7 +15,7 @@ from django.utils.translation import ugettext_lazy as _
 from inline_ordering.models import Orderable
 from django.utils.deconstruct import deconstructible
 from django.db import connection
-
+from filer.fields.image import FilerImageField
 from . import utils
 
 localdata = threading.local()
@@ -51,7 +51,7 @@ class GalleryPlugin(CMSPlugin):
         for img in oldinstance.image_set.all():
             new_img = Image()
             new_img.gallery=self
-            new_img.src = img.src
+            new_img.image_src = img.image_src
             new_img.src_height = img.src_height
             new_img.src_width = img.src_width
             new_img.title = img.title
@@ -95,9 +95,13 @@ class Image(Orderable):
                 str(today.year), str(today.month), str(today.day), filename)
 
     gallery = models.ForeignKey(GalleryPlugin, verbose_name=_("Gallery"))
-    src = models.ImageField(_("Image file"), upload_to=get_upload_path,
-                            height_field='src_height',
-                            width_field='src_width')
+    image_src = FilerImageField(
+            verbose_name=_(u'Image File'),
+            blank=True,
+            null=True,
+            on_delete=models.SET_NULL,
+            related_name='+',
+    )
     src_height = models.PositiveSmallIntegerField(_("Image height"), editable=False, null=True)
     src_width = models.PositiveSmallIntegerField(_("Image height"), editable=False, null=True)
     title = models.CharField(_("Title"), max_length=255, blank=True)
