@@ -51,7 +51,7 @@ class GalleryPlugin(CMSPlugin):
         for img in oldinstance.image_set.all():
             new_img = Image()
             new_img.gallery=self
-            new_img.src = img.src
+            new_img.image_src = img.image_src
             new_img.src_height = img.src_height
             new_img.src_width = img.src_width
             new_img.title = img.title
