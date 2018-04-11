@@ -8,7 +8,6 @@ python:
 sudo: false
 
 env:
-  - TOX_ENV=flake8
   - TOX_ENV=py27-latest
   - TOX_ENV=py35-latest
   # Django 1.8
