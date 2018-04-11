@@ -3,14 +3,14 @@
 <div class="gallery" id="cmspluginGallery{{ gallery.pk }}">
 	{% for image in images %}
 		<div>
-			<img src="{% thumbnail image.src 115x80 crop %}" alt="{{ image.alt }}" title="{{ image.title }}" rel="#cmspluginGalleryImage{{ image.pk }}" />
+			<img src="{% thumbnail image.image_src 115x80 crop %}" alt="{{ image.alt }}" title="{{ image.title }}" rel="#cmspluginGalleryImage{{ image.pk }}" />
 		</div>
 	{% endfor %}
 </div>
 
 {% for image in images %}
 <div class="simple_overlay" id="cmspluginGalleryImage{{ image.pk }}">
-	<img src="{{ image.src.url }}" />
+	<img src="{{ image.image_src.url }}" />
 </div>
 {% endfor %}
 
