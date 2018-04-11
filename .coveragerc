@@ -1,6 +1,6 @@
 [run]
 branch = True
-source = djangocms_picture
+source = cmsplugin_gallery
 omit =
     migrations/*
     tests/*
