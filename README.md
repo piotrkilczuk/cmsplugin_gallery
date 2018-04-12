@@ -23,6 +23,12 @@ Please note that cmsplugin_gallery requires:
 - easy-thumbnails http://pypi.python.org/pypi/easy-thumbnails/
 - django-filer https://pypi.python.org/pypi/django-filer
 
+**IMPORTANT**
+
+If you are using version later than 1.1.4, Please update all your templates to use
+`image_src` instead of `src`. `image_src` is the new FilerImageField instead of the old
+`src` which was the ImageField. Check this [diff](https://github.com/centralniak/cmsplugin_gallery/commit/364378842885ba2e2e0f2730076658b3c039534c) for the change in sample template.
+
 ## Installation
 
 - `pip install cmsplugin_gallery`
