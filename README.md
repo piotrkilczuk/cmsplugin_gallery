@@ -1,43 +1,35 @@
-# cmsplugin_gallery
+# Cmsplugin Gallery
 
 [![Build Status](https://travis-ci.org/centralniak/cmsplugin_gallery.svg?branch=master)](https://travis-ci.org/centralniak/cmsplugin_gallery)
 
-`cmsplugin_gallery` adds simple gallery plugin to your djangoCMS installation
+`cmsplugin_gallery` is the most versatile gallery plugin for djangoCMS. It has support for both
+Python2 and Python3.
 
 Features:
 
+- Latest version of the plugin supports filer.
 - Drag & Drop reordering of photos in the plugin admin
 - Unlimited, auto-discovered custom templates - you can change template
   of given gallery at anytime, use javascript galleries etc.
 
-There is also a django-filer_ enabled version of this plugin maintained by
-Ales Zabala Alava under https://github.com/shagi/cmsplugin_gallery_filer.
 
-Contributions and comments are welcome using Github at:
-http://github.com/centralniak/cmsplugin_gallery
+## Requirements
 
+Supports Django version 1.8+ and latest Django CMS version.
+Follow individual installation instructions before installing **cmsplugin_gallery**.
 Please note that cmsplugin_gallery requires:
 
 - django-inline-ordering http://pypi.python.org/pypi/django-inline-ordering/
 - easy-thumbnails http://pypi.python.org/pypi/easy-thumbnails/
+- django-filer https://pypi.python.org/pypi/django-filer
 
-Follow individual installation instructions before installing **cmsplugin_gallery**.
+## Installation
 
-Installation
-============
-```
-`pip install cmsplugin_gallery`
-Add `'cmsplugin_gallery'` to `INSTALLED_APPS` (if necessary)
-Run Migrations
-```
+- `pip install cmsplugin_gallery`
+- Add `'cmsplugin_gallery'` to `INSTALLED_APPS` (if necessary)
+- Run Migrations
 
-Configuration
-=============
-
-#. Supports Django version 1.8+ and latest Django CMS version.
-
-Usage
-=====
+## Usage
 
 The easiest approach is to use a nice feature of cmsplugin_gallery -
 the template autodiscovery. In order to take advantage of it, add your custom
@@ -55,20 +47,13 @@ CMSPLUGIN_GALLERY_TEMPLATES = (
 ```
 Embed as a typical plugin.
 
-Bugs & Contribution
-===================
+## Bugs & Contribution
 
-Please use Github to report bugs, feature requests and submit your code:
-http://github.com/centralniak/cmsplugin_gallery
+Please use GitHub to report bugs, feature requests and submit your code.
 
-```
-author: Piotr Kilczuk
-date: 2012/08/01
-```
+[Report New Issue](http://github.com/centralniak/cmsplugin_gallery/issues/new)
 
-Current Maintainer:
 
-```
-maintainer: Vinit Kumar
-date: 2016/08/23
-```
+## Contributors
+
+[Contributors](https://github.com/centralniak/cmsplugin_gallery/graphs/contributors)
