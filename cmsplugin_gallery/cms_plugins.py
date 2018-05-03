@@ -7,13 +7,17 @@ from django.conf import settings
 from . import admin
 from . import models
 
+if hasttr(settings, 'GALLERY_PLUGIN_MODULE_NAME'):
+    MODULE_NAME = settings.GALLERY_PLUGIN_MODULE_NAME
+else:
+    MODULE_NAME = 'UI'
 
 class CMSGalleryPlugin(CMSPluginBase):
 
     model = models.GalleryPlugin
     inlines = [admin.ImageInline, ]
     name = _('Image gallery Plugin')
-    module = settings.GALLERY_PLUGIN_MODULE_NAME
+    module = MODULE_NAME
     render_template = 'cmsplugin_gallery/gallery.html'
 
     def render(self, context, instance, placeholder):
