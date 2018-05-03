@@ -4,7 +4,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='cmsplugin_gallery',
-    version='1.1.5',
+    version='1.1.6',
     author='Piotr Kilczuk',
     author_email='piotr@tymaszweb.pl',
     url='http://github.com/centralniak',
