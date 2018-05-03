@@ -7,7 +7,7 @@ from django.conf import settings
 from . import admin
 from . import models
 
-if hasttr(settings, 'GALLERY_PLUGIN_MODULE_NAME'):
+if hasattr(settings, 'GALLERY_PLUGIN_MODULE_NAME'):
     MODULE_NAME = settings.GALLERY_PLUGIN_MODULE_NAME
 else:
     MODULE_NAME = 'UI'
