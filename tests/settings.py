@@ -15,6 +15,7 @@ HELPER_SETTINGS = {
         }]
     },
     'LANGUAGE_CODE': 'en',
+    'GALLERY_PLUGIN_MODULE_NAME': 'UI',
     'CMSPLUGIN_GALLERY_TEMPLATES': [
         ('cmsplugin_gallery/gallery.html', 'gallery.html'),
     ]
