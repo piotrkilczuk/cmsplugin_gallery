@@ -12,16 +12,19 @@ def migrate_to_filer(apps, schema_editor):
     GalleryImage = apps.get_model('cmsplugin_gallery', 'Image')
     images = GalleryImage.objects.all()
 
-    for image in images:
-        if image.src:
-            image_src = Image.objects.get_or_create(
-                        file=image.src.file,
-                        defaults={
-                            'name': image.src.name
-                        }
-            )[0]
+    try:
+        for image in images:
+            if image.src:
+                image_src = Image.objects.get_or_create(
+                            file=image.src.file,
+                            defaults={
+                                'name': image.src.name
+                            }
+                )[0]
 
-            images.filter(pk=image.pk).update(image_src=image_src)
+                images.filter(pk=image.pk).update(image_src=image_src)
+    except Exception as e:
+        print e
 
 class Migration(migrations.Migration):
 
