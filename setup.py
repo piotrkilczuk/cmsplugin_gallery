@@ -32,13 +32,14 @@ CLASSIFIERS = [
 with open("README.md") as readme_file:
     readme = readme_file.read()
 
-with open("HISTORY.md") as history_file:
+with open("History.md") as history_file:
     history = history_file.read()
 
+from cmsplugin_gallery import __version__
 
 setup(
     name='cmsplugin_gallery',
-    version='2.0.0',
+    version=__version__,
     author='Piotr Kilczuk',
     author_email='piotr@tymaszweb.pl',
     url='https://github.com/piotrkilczuk/cmsplugin_gallery',
