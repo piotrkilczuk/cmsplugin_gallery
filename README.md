@@ -15,7 +15,7 @@ Features:
 
 ## Requirements
 
-Supports Django version 3.2 and latest Django CMS version.
+Supports Django version 3.2+ and latest Django CMS version.
 Follow individual installation instructions before installing **cmsplugin_gallery**.
 Please note that cmsplugin_gallery requires:
 
