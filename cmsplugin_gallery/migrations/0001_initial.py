@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='GalleryPlugin',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
+                ('cmsplugin_ptr', models.OneToOneField(on_delete=models.CASCADE, parent_link=True, auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
                 ('template', models.CharField(default=b'cmsplugin_gallery/gallery-fancy.html', max_length=255, choices=[(b'cmsplugin_gallery/gallery-fancy.html', b'gallery-fancy.html'), (b'cmsplugin_gallery/gallery.html', b'gallery.html')])),
             ],
             options={
@@ -33,7 +33,7 @@ class Migration(migrations.Migration):
                 ('src_width', models.PositiveSmallIntegerField(verbose_name='Image height', null=True, editable=False)),
                 ('title', models.CharField(max_length=255, verbose_name='Title', blank=True)),
                 ('alt', models.TextField(verbose_name='Alt text', blank=True)),
-                ('gallery', models.ForeignKey(verbose_name='Gallery', to='cmsplugin_gallery.GalleryPlugin')),
+                ('gallery', models.ForeignKey(on_delete=models.CASCADE, verbose_name='Gallery', to='cmsplugin_gallery.GalleryPlugin')),
             ],
             options={
                 'ordering': ('inline_ordering_position',),

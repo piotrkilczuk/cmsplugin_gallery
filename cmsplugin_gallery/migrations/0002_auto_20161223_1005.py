@@ -19,6 +19,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='galleryplugin',
             name='cmsplugin_ptr',
-            field=models.OneToOneField(parent_link=True, related_name='cmsplugin_gallery_galleryplugin', auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin'),
+            field=models.OneToOneField(on_delete=models.CASCADE, parent_link=True, related_name='cmsplugin_gallery_galleryplugin', auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin'),
         ),
     ]

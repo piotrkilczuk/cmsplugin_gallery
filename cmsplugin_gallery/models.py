@@ -11,7 +11,7 @@ except ImportError:
     from cms.utils.conf import get_cms_setting
 
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from inline_ordering.models import Orderable
 from django.utils.deconstruct import deconstructible
 from django.db import connection
@@ -94,7 +94,7 @@ class Image(Orderable):
             return os.path.join(get_cms_setting('PAGE_MEDIA_PATH'),
                 str(today.year), str(today.month), str(today.day), filename)
 
-    gallery = models.ForeignKey(GalleryPlugin, verbose_name=_("Gallery"))
+    gallery = models.ForeignKey(GalleryPlugin, on_delete=models.CASCADE,  verbose_name=_("Gallery"))
     image_src = FilerImageField(
             verbose_name=_(u'Image File'),
             blank=True,
