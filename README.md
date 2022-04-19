@@ -1,9 +1,9 @@
 # Cmsplugin Gallery
 
-[![Build Status](https://travis-ci.org/centralniak/cmsplugin_gallery.svg?branch=master)](https://travis-ci.org/centralniak/cmsplugin_gallery)
+[![Run Tests](https://github.com/piotrkilczuk/cmsplugin_gallery/actions/workflows/test.yml/badge.svg)](https://github.com/piotrkilczuk/cmsplugin_gallery/actions/workflows/test.yml)
 
-`cmsplugin_gallery` is the most versatile gallery plugin for djangoCMS. It has support for both
-Python2 and Python3.
+`cmsplugin_gallery` is the most versatile gallery plugin for djangoCMS. It supports
+Python3.7 and above.
 
 Features:
 
@@ -15,7 +15,7 @@ Features:
 
 ## Requirements
 
-Supports Django version 1.8+ and latest Django CMS version.
+Supports Django version 3.2 and latest Django CMS version.
 Follow individual installation instructions before installing **cmsplugin_gallery**.
 Please note that cmsplugin_gallery requires:
 
@@ -45,7 +45,7 @@ by Django.
 If you don't want to use the autodiscovery, you can hardcode available templates
 in settings.py using following setting:
 
-```
+```python
 CMSPLUGIN_GALLERY_TEMPLATES = (
     ('app/template.html', 'Template #1', ),
     ('app/other_template.html', 'Template #2', ),
@@ -57,9 +57,9 @@ Embed as a typical plugin.
 
 Please use GitHub to report bugs, feature requests and submit your code.
 
-[Report New Issue](http://github.com/centralniak/cmsplugin_gallery/issues/new)
+[Report New Issue](https://github.com/piotrkilczuk/cmsplugin_gallery/issues/new/choose)
 
 
 ## Contributors
 
-[Contributors](https://github.com/centralniak/cmsplugin_gallery/graphs/contributors)
+[Contributors](https://github.com/piotrkilczuk/cmsplugin_gallery/graphs/contributors)
