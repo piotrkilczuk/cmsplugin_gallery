@@ -15,6 +15,8 @@ HELPER_SETTINGS = {
         }]
     },
     'LANGUAGE_CODE': 'en',
+    'DEFAULT_AUTO_FIELD': 'django.db.models.AutoField',
+    'SECRET_KEY': 'herozyz',
     'GALLERY_PLUGIN_MODULE_NAME': 'UI',
     'CMSPLUGIN_GALLERY_TEMPLATES': [
         ('cmsplugin_gallery/gallery.html', 'gallery.html'),
