@@ -22,7 +22,7 @@ def migrate_to_filer(apps, schema_editor):
 
                 images.filter(pk=image.pk).update(image_src=image_src)
     except Exception as e:
-        print e
+        print(e)
 
 class Migration(migrations.Migration):
 
