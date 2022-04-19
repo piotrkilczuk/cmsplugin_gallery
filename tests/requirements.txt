@@ -1,5 +1,5 @@
 # requirements from setup.py
 # other requirements
-djangocms-helper==1.2.5
+django-app-helper==3.0.1
 tox
 coverage
