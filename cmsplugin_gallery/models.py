@@ -1,4 +1,3 @@
-from __future__ import absolute_import
 from datetime import date
 import os
 import threading
@@ -24,7 +23,7 @@ TEMPLATE_CHOICES = localdata.TEMPLATE_CHOICES
 
 
 @deconstructible
-class UploadPath(object):
+class UploadPath:
 
     def __init__(self, sub_path):
         self.path = sub_path
@@ -68,7 +67,7 @@ class GalleryPlugin(CMSPlugin):
                                 editable=len(TEMPLATE_CHOICES) > 1)
 
     def __unicode__(self):
-        return _(u'%(count)d image(s) in gallery') % {'count': self.image_set.count()}
+        return _('%(count)d image(s) in gallery') % {'count': self.image_set.count()}
 
 
 class Image(Orderable):
@@ -96,7 +95,7 @@ class Image(Orderable):
 
     gallery = models.ForeignKey(GalleryPlugin, on_delete=models.CASCADE,  verbose_name=_("Gallery"))
     image_src = FilerImageField(
-            verbose_name=_(u'Image File'),
+            verbose_name=_('Image File'),
             blank=True,
             null=True,
             on_delete=models.SET_NULL,
