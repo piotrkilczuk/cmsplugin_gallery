@@ -32,6 +32,9 @@ CLASSIFIERS = [
 with open("README.md") as readme_file:
     readme = readme_file.read()
 
+with open("History.md") as history_file:
+    history = history_file.read()
+
 from cmsplugin_gallery import __version__
 
 setup(
@@ -43,7 +46,7 @@ setup(
     description = 'DjangoCMS image gallery plugin with drag&drop '
                   'reordering in admin, support for thumbnails and '
                   'jQueryTOOLS overlay.',
-    long_description=readme + "\n\n",
+    long_description=readme + "\n\n" + history,
     long_description_content_type="text/markdown",
     packages=find_packages(),
     provides=['cmsplugin_gallery', ],
