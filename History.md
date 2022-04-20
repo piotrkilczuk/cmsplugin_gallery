@@ -1,4 +1,9 @@
 
+2.0.3 / 2022-04-20
+==================
+
+  * fix: issue with the history.md file not included in MANIFEST.in file
+
 2.0.0 / 2022-04-20
 ==================
 
