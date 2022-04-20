@@ -3,3 +3,4 @@
 django-app-helper==3.0.1
 tox
 coverage
+Django==3.2
